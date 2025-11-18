@@ -54,7 +54,7 @@ function SampleComponent() {
       {/* Select element */}
       <select>
         <option value="">Choose an option</option>
-        <option value="1">Option 1</option>
+        <option value="1">2111</option>
         <option value="2">Option 2</option>
       </select>
 
