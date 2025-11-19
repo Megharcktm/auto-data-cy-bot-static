@@ -26,6 +26,12 @@ jobs:
 
       - name: Install deps
         run: npm ci
+      - name: Debug: print scanner.js content
+        run: |
+          echo "---- scanner.js (first 120 lines) ----"
+          sed -n '1,120p' src/static/scanner.js || true
+          echo "---- SHA1 checksum ----"
+          sha1sum src/static/scanner.js || true
 
       - name: Run static scanner and post suggestions
         env:
