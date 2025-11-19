@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Debug: print scanner.js content
-        run: |
+        run:  |
           echo "---- GIT HEAD ----"
           git rev-parse --abbrev-ref HEAD || true
           git rev-parse HEAD || true
