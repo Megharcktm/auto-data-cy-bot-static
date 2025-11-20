@@ -27,8 +27,7 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name:
-        Debug: print scanner.js content
+      - name: Debug: print scanner.js content
         run: |
           echo "---- GIT HEAD ----"
           git rev-parse --abbrev-ref HEAD || true
