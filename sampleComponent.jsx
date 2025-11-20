@@ -14,7 +14,7 @@ function SampleComponent() {
 
   return (
     <div className="sample-container">
-      <h1>Sample Form Component</h1>
+      <h1>Sample Form Componentimage.png</h1>
 
       {/* Button with text content */}
       <button onClick={handleSubmit}>Submit Form</button>
