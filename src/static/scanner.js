@@ -8,7 +8,6 @@ const { Octokit } = require("@octokit/rest");
 const fs = require("fs");
 const path = require("path");
 const recast = require("recast");
-const babelParser = require("@babel/parser");
 const { generateTag } = require("../utils/nameGenerator");
 
 const token = process.env.GITHUB_TOKEN;
@@ -39,22 +38,7 @@ async function listChangedFiles() {
 // FORCE Babel parser, not Esprima
 function parseWithBabel(code, file) {
   return recast.parse(code, {
-    parser: {
-      parse(source) {
-        return babelParser.parse(source, {
-          sourceType: "module",
-          plugins: [
-            "jsx",
-            "typescript",
-            "classProperties",
-            "objectRestSpread",
-            "optionalChaining",
-            "nullishCoalescingOperator",
-            "decorators-legacy",
-          ],
-        });
-      },
-    },
+    parser: require("recast/parsers/babel"),
   });
 }
 
