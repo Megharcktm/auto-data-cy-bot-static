@@ -22,13 +22,12 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install deps
         run: npm ci
-
       - name: Debug: print scanner.js content
-        run:  |
+        run: |
           echo "---- GIT HEAD ----"
           git rev-parse --abbrev-ref HEAD || true
           git rev-parse HEAD || true
@@ -39,7 +38,7 @@ jobs:
           echo "---- List repo top files ----"
           ls -la || true
           echo "---- scanner.js head (first 120 lines) ----"
-          sed -n '1,120p' src/static/scanner.js || true
+          if [ -f src/static/scanner.js ]; then sed -n '1,120p' src/static/scanner.js || true; else echo "file missing"; fi
           echo "---- scanner.js sha1 ----"
           if [ -f src/static/scanner.js ]; then sha1sum src/static/scanner.js || true; else echo "file missing"; fi
 
