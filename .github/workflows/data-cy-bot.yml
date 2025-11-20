@@ -26,6 +26,7 @@ jobs:
 
       - name: Install deps
         run: npm ci
+
       - name: Debug: print scanner.js content
         run: |
           echo "---- GIT HEAD ----"
